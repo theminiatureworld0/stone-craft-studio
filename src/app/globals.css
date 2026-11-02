@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-parchment-bg: #FAF7F2;
+  --color-parchment-warm: #F4ECE1;
+  --color-parchment-border: #E2D7C7;
+  --color-ink-primary: #26201B;
+  --color-ink-muted: #6E645A;
+  --color-bronze: #9E6F39;
+  --color-bronze-hover: #825828;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #FAF7F2;
+    color: #26201B;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAF7F2;
+    color: #26201B;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #9E6F39;
+    color: #FFFFFF;
+  }
+
+  :focus-visible {
+    outline: 2px solid #9E6F39;
+    outline-offset: 2px;
+  }
+}
+
+/* Subtle old paper texture */
+.paper-texture {
+  background-color: #FAF7F2;
+  background-image: 
+    radial-gradient(#E2D7C7 0.75px, transparent 0.75px), 
+    radial-gradient(#EAE1D3 0.75px, #FAF7F2 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Old paper banner gradient */
+.bg-parchment-banner {
+  background: linear-gradient(135deg, #FAF7F2 0%, #F5ECE0 50%, #FAF5EE 100%);
+}
+
+.bg-parchment-card {
+  background-color: #FFFFFF;
+  border-color: #E2D7C7;
+}
+
+/* Smooth transitions */
+a, button {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
