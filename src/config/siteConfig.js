@@ -6,12 +6,26 @@
  * Edit this file to update business details across the entire website.
  */
 
+// Dynamically determine the live production site URL
+const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  return "https://stone-craft-studio.vercel.app";
+};
+
 export const siteConfig = {
   // Brand Details
   businessName: "Stone Craft Studio",
   shortBusinessName: "Stone Craft",
   tagline: "Where Stone Becomes Timeless Art",
-  description: "Handcrafted architectural stone carvings, bespoke stone wall panels, traditional idols, and monumental stone pillars rooted in fine Indian stone craftsmanship.",
+  description: "Premier architectural stone carving studio in Maharashtra, India. Specialising in handcrafted Indian stone home temples, monolithic deity idols, 3D stone wall panels, classical pillars, and bespoke sandstone architecture.",
   
   // Contact Information (Configurable - replace with genuine client details)
   phoneNumber: "+91 98765 43210",
@@ -20,7 +34,7 @@ export const siteConfig = {
   email: "contact@stonecraftstudio.com",
   
   // Location
-  address: "Crafts Industrial Zone",
+  address: "Architectural Crafts Zone",
   city: "Pune",
   state: "Maharashtra",
   country: "India",
@@ -28,16 +42,15 @@ export const siteConfig = {
   
   // Visual Assets
   logo: "/images/icons/logo.svg",
-  favicon: "/favicon.ico",
+  favicon: "/favicon.svg",
   
   // Social Media Links (Leave empty or set actual URLs when provided)
   instagramUrl: "", // e.g. "https://instagram.com/stonecraftstudio"
   facebookUrl: "",  // e.g. "https://facebook.com/stonecraftstudio"
   googleMapsUrl: "", // e.g. "https://maps.google.com/..."
-  websiteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://stonecraftstudio.com",
+  websiteUrl: getBaseUrl(),
   
   // Form Submission Endpoint (Formspree or similar external service)
-  // Set to process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT or configure below
   formEndpoint: process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "",
 
   // Google Search Console Verification code

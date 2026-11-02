@@ -3,7 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/common/FloatingWhatsApp";
 import { siteConfig } from "@/config/siteConfig";
-import { getLocalBusinessSchema } from "@/lib/seo";
+import { getLocalBusinessSchema, getWebSiteSchema } from "@/lib/seo";
 
 export const metadata = {
   metadataBase: new URL(siteConfig.websiteUrl),
@@ -14,18 +14,27 @@ export const metadata = {
   description: siteConfig.description,
   keywords: [
     "Stone carving in Maharashtra",
+    "Indian stone home temple",
+    "Handcrafted stone mandir for home",
+    "Stone idols and sculptures",
+    "Handcrafted Ganesha stone idol",
+    "Lord Shiva stone sculpture",
     "Stone wall decorations",
-    "Handcrafted stone idols",
-    "Architectural stone designs",
-    "Decorative stone panels",
-    "Stone pillars",
-    "Temple stone carvings",
-    "Custom stone sculptures",
-    "Dholpur sandstone carving",
-    "Indian architectural stone"
+    "3D stone wall panels and relief murals",
+    "Architectural stone designs Pune Mumbai",
+    "Decorative sandstone panels",
+    "Natural stone pillars and columns",
+    "Temple stone carvings Maharashtra",
+    "Custom stone water fountains",
+    "Dholpur beige sandstone carving",
+    "Bespoke stone craftsmanship India"
   ],
-  authors: [{ name: siteConfig.businessName }],
+  authors: [{ name: siteConfig.businessName, url: siteConfig.websiteUrl }],
   creator: siteConfig.businessName,
+  publisher: siteConfig.businessName,
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -43,7 +52,7 @@ export const metadata = {
         url: "/images/hero/hero-main.webp",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.businessName} Architectural Craftsmanship`,
+        alt: `${siteConfig.businessName} Architectural Stone Craftsmanship`,
       },
     ],
   },
@@ -64,10 +73,14 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
+  verification: siteConfig.googleSiteVerification ? {
+    google: siteConfig.googleSiteVerification,
+  } : undefined,
 };
 
 export default function RootLayout({ children }) {
   const businessSchema = getLocalBusinessSchema();
+  const websiteSchema = getWebSiteSchema();
 
   return (
     <html lang="en" className="scroll-smooth">
@@ -82,8 +95,12 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       </head>
-      <body className="font-sans antialiased bg-[#F7F5F0] text-[#272521] selection:bg-[#B49A7B] selection:text-white flex flex-col min-h-screen">
+      <body className="font-sans antialiased bg-[#FAF7F2] text-[#26201B] selection:bg-[#9E6F39] selection:text-white flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

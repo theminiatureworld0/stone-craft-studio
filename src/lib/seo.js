@@ -92,13 +92,29 @@ export function getLocalBusinessSchema() {
     ],
     "knowsAbout": [
       "Stone Carving in Maharashtra",
-      "Stone Wall Decorations",
-      "Handcrafted Stone Idols & Sculptures",
-      "Architectural Stone Designs",
-      "Stone Pillars & Columns",
-      "Temple Stone Carvings",
-      "Bespoke Sandstone Craftsmanship"
+      "Indian Stone Home Temples and Mandirs",
+      "Handcrafted Stone Idols and Deity Sculptures",
+      "Stone Wall Decorations and 3D Relief Murals",
+      "Architectural Stone Designs and Portals",
+      "Stone Pillars and Fluted Columns",
+      "Temple Stone Carvings and Shikhara",
+      "Bespoke Sandstone Craftsmanship",
+      "Natural Dholpur Sandstone Masonry"
     ]
+  };
+}
+
+/**
+ * Returns JSON-LD structured data for WebSite
+ */
+export function getWebSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": siteConfig.businessName,
+    "alternateName": siteConfig.shortBusinessName,
+    "url": siteConfig.websiteUrl,
+    "description": siteConfig.description,
   };
 }
 
